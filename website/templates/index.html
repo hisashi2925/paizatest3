@@ -1,6 +1,14 @@
-<h1>Hello, Django</h1>
+{% extends "base.html" %}
+{% load static %}
 
-<p>Welcome</p>
 
-
-こんにちは
+{% block main %}
+{% if username == "hisashi" %}
+<h1>自分です。</h1>
+{% elif username %}
+<h1>{{ username }}さん、ようこそ</h1>
+{% else %}
+<h1>匿名さん、ようこそ</h1>
+{% endif %}
+<img src="{% static 'welcome.jpg' %}" />
+{% endblock %}
